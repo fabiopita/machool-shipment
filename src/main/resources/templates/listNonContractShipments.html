@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>List of Non Contract Shipment</title>
+	
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+</head>
+<body>
+	<div class="panel panel-default" style="margin: 10px">
+		<div class="panel-heading">
+   			<h1 class="panel-title">List of Non Contract Shipment</h1>
+	   	</div>
+	   	<div class="panel-body">		
+			<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th></th>
+						<th colspan="4">Sender</th>
+						<th colspan="5">Destination</th>
+					</tr>
+					<tr>
+						<th>Shipment ID</th>
+						<th>Tracking Pin</th>
+						<th>Name</th>
+						<th>Company</th>
+						<th>Phone</th>
+						<th>Address</th>
+						<th>Name</th>
+						<th>Company</th>
+						<th>Phone</th>
+						<th nowrap="nowrap">Address Info</th>
+						<th>Address</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr th:each="nonContractShipment : ${nonContractShipments}">
+						<td th:text="${nonContractShipment.shipmentID}"></td>
+						<td th:text="${nonContractShipment.TrackingPin}"></td>
+						<td th:text="${nonContractShipment.deliverySpec.sender.name}"></td>
+						<td th:text="${nonContractShipment.deliverySpec.sender.company}"></td>
+						<td th:text="${nonContractShipment.deliverySpec.sender.contactPhone}"></td>
+						<td th:text="${nonContractShipment.deliverySpec.sender.addressDetails.getFullAddress()}"></td>
+						<td th:text="${nonContractShipment.deliverySpec.destination.name}"></td>
+						<td th:text="${nonContractShipment.deliverySpec.destination.company}"></td>
+						<td th:text="${nonContractShipment.deliverySpec.destination.clientVoiceNumber}"></td>
+						<td th:text="${nonContractShipment.deliverySpec.destination.additionalAddressInfo}"></td>
+						<td th:text="${nonContractShipment.deliverySpec.destination.address.getFullAddress()}"></td>
+					</tr>
+				</tbody>
+			</table><br/>	
+			<a  href="/formNonContractShipment" class="btn btn-primary">Non Contract Shipment</a>		
+		</div>
+	</div>
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

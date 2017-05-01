@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Create Non Contract Shipment</title>
+	
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+</head>
+<body>
+	<div class="panel panel-default" style="margin: 10px">
+		<div class="panel-heading">
+   			<h1 class="panel-title">Create Non Contract Shipment</h1>
+	   	</div>
+	   	
+	   	<div class="panel-body">		
+			<form class="form-inline" method="POST" style="margin: 20px 0" th:object="${nonContractShipmentTO}" th:action="@{/formNonContractShipment}">
+				<div class="form-group">
+					<table class="table">
+						<tr>
+							<th>Sender</th>
+							<th></th>
+							<th>Destination</th>
+							<th></th>
+						</tr>
+						<tr>
+							<td>
+								<input type="text" style="text-transform: uppercase" required="required" class="form-control" placeholder="Name" th:field="*{deliverySpec.sender.name}"/><br/>
+								<input type="text" style="text-transform: uppercase" required="required" class="form-control" placeholder="Company" th:field="*{deliverySpec.sender.company}"/><br/>
+								<input type="text" style="text-transform: uppercase" class="form-control" placeholder="Phone" th:field="*{deliverySpec.sender.contactPhone}"/><br/>
+							</td>
+							<td>
+								<input type="text" style="text-transform: uppercase" required="required" class="form-control" placeholder="Address 1" th:field="*{deliverySpec.sender.addressDetails.addressLine1}"/><br/>
+								<input type="text" style="text-transform: uppercase" class="form-control" placeholder="Address 2" th:field="*{deliverySpec.sender.addressDetails.addressLine2}"/><br/>
+								<input type="text" style="text-transform: uppercase" required="required" class="form-control" placeholder="City" th:field="*{deliverySpec.sender.addressDetails.city}"/><br/>
+								<select id="option" class="form-control" th:field="*{deliverySpec.sender.addressDetails.provState}" >
+				                    <option value="">Select Provence</option>
+				                    <option th:each="provenceCA : ${provencesCA}" th:value="${provenceCA.abbreviation}" th:text="${provenceCA.name}"></option>
+				                </select><br/>
+								<input type="text" style="text-transform: uppercase" required="required" class="form-control" placeholder="Postal Zip Code" th:field="*{deliverySpec.sender.addressDetails.postalZipCode}"/><br/>
+							</td>
+							<td>
+								<input type="text" style="text-transform: uppercase" required="required" class="form-control" placeholder="Name" th:field="*{deliverySpec.destination.name}"/><br/>
+								<input type="text" style="text-transform: uppercase" required="required" class="form-control" placeholder="Company" th:field="*{deliverySpec.destination.company}"/><br/>
+								<input type="text" style="text-transform: uppercase" class="form-control" placeholder="Address Info" th:field="*{deliverySpec.destination.additionalAddressInfo}"/><br/>
+								<input type="text" style="text-transform: uppercase" class="form-control" placeholder="Phone" th:field="*{deliverySpec.destination.clientVoiceNumber}"/><br/>
+							</td>
+							<td>
+								<input type="text" style="text-transform: uppercase" required="required" class="form-control" placeholder="Address 1" th:field="*{deliverySpec.destination.address.addressLine1}"/><br/>
+								<input type="text" style="text-transform: uppercase" class="form-control" placeholder="Address 2" th:field="*{deliverySpec.destination.address.addressLine2}"/><br/>
+								<input type="text" style="text-transform: uppercase" required="required" class="form-control" placeholder="City" th:field="*{deliverySpec.destination.address.city}"/><br/>
+								<input type="text" style="text-transform: uppercase" required="required" class="form-control" placeholder="Provance" th:field="*{deliverySpec.destination.address.provState}"/><br/>
+								<input type="text" style="text-transform: uppercase" required="required" class="form-control" placeholder="Country" th:field="*{deliverySpec.destination.address.countryCode}"/><br/>
+								<input type="text" style="text-transform: uppercase" required="required" class="form-control" placeholder="Postal Zip Code" th:field="*{deliverySpec.destination.address.postalZipCode}"/><br/>
+							</td>
+						</tr>								
+					</table>
+					<table class="table">
+						<tr>
+							<th>Parcel Characteristics</th>
+							<th>Dimensions</th>
+							<th>Option</th>
+						</tr>
+						<tr>
+							<td>
+								<input type="number" style="text-transform: uppercase"  required="required" class="form-control" min="1" max="99999" placeholder="Weight" th:field="*{deliverySpec.parcelCharacteristic.weight}"/><br/>
+								<input type="checkbox" class="form-control" th:field="*{deliverySpec.parcelCharacteristic.document}" value="false"/> <label style="color: gray; text-transform: uppercase">Document</label><br/>
+								<input type="checkbox" class="form-control" th:field="*{deliverySpec.parcelCharacteristic.unpackaged}" value="false"/> <label style="color: gray; text-transform: uppercase">Unpackaged</label><br/>
+								<input type="checkbox" class="form-control" th:field="*{deliverySpec.parcelCharacteristic.mailingTube}" value="false"/> <label style="color: gray; text-transform: uppercase">Mailing Tube</label><br/>
+							</td>
+							<td>
+								<input type="number" required="required" class="form-control" min="1" placeholder="Length" th:field="*{deliverySpec.parcelCharacteristic.dimensions.length}"/><br/>
+								<input type="number" required="required" class="form-control" min="1" placeholder="Width" th:field="*{deliverySpec.parcelCharacteristic.dimensions.width}"/><br/>
+								<input type="number" required="required" class="form-control" min="1" placeholder="Height" th:field="*{deliverySpec.parcelCharacteristic.dimensions.height}"/><br/>
+							</td>
+							<td>
+								<select id="option" class="form-control" th:field="*{deliverySpec.option.optionCode}" >
+				                    <option value="">Select Option</option>
+				                    <option th:each="optionCode : ${optionCodes}" th:value="${optionCode.code}" th:text="${optionCode.description}"></option>
+				                </select>
+							</td>
+						</tr>								
+					</table>
+					<table class="table">
+						<tr>
+							<th>Notifications</th>
+							<th>Preference</th>
+						</tr>
+						<tr>
+							<td>
+								<input type="text" required="required"  class="form-control" placeholder="email" th:field="*{deliverySpec.notification.email}"/><br/>
+								<input type="checkbox" class="form-control" th:field="*{deliverySpec.notification.onShipment}" value="false"/> <label style="color: gray; text-transform: uppercase">Shipment</label><br/>
+								<input type="checkbox" class="form-control" th:field="*{deliverySpec.notification.onException}" value="false"/> <label style="color: gray; text-transform: uppercase">Exception</label><br/>
+								<input type="checkbox" class="form-control" th:field="*{deliverySpec.notification.onDelivery}" value="false"/> <label style="color: gray; text-transform: uppercase">Delivery</label><br/>
+							</td>
+							<td>
+								<input type="checkbox" class="form-control" th:field="*{deliverySpec.preference.showPackingInstructions}" value="false"/> <label style="color: gray; text-transform: uppercase">Packing Instructions</label><br/>
+								<input type="checkbox" class="form-control" th:field="*{deliverySpec.preference.showPostageRate}" value="false"/> <label style="color: gray; text-transform: uppercase">Postage Rate</label><br/>
+								<input type="checkbox" class="form-control" th:field="*{deliverySpec.preference.showInsuredValue}" checked/> <label style="color: gray;">Insured Value</label><br/>
+							</td>
+						</tr>								
+					</table>
+					<button type="submit" class="btn btn-primary">Create</button>
+				</div>
+			</form>	
+		</div>
+	</div>
+	
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

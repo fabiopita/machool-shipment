@@ -1,0 +1,27 @@
+insert into option (id, code, description) values (1, 'COV' ,'Coverage');
+insert into option (id, code, description) values (2, 'COD' ,'Collect on delivery');
+insert into option (id, code, description) values (3, 'DC' , 'Delivery confirmation (system generated)');
+insert into option (id, code, description) values (4, 'SO' , 'Signature option');
+insert into option (id, code, description) values (5, 'D2PO' , 'Deliver to Post Office');
+insert into option (id, code, description) values (6, 'DNS' , 'Do not safe drop');
+insert into option (id, code, description) values (7, 'HFP' , 'Card for pickup');
+insert into option (id, code, description) values (8, 'LAD' , 'Leave at door – do  not card');
+insert into option (id, code, description) values (9, 'RASE' , 'Return at senders expense');
+insert into option (id, code, description) values (10,'ABAN' , 'Abandon');
+insert into option (id, code, description) values (11, 'RTS' , 'Return to sender');
+insert into option (id, code, description) values (12, 'PA18' , 'Proof of age required (18 years)');
+insert into option (id, code, description) values (13, 'PA19' , 'Proof of age required (19 years)');
+
+insert into provence_ca (id, abbreviation, name) values (1,  'AB', 'Alberta');
+insert into provence_ca (id, abbreviation, name) values (2,  'BC', 'British Columbia');
+insert into provence_ca (id, abbreviation, name) values (3,  'MB', 'Manitoba');
+insert into provence_ca (id, abbreviation, name) values (4,  'NB', 'New Brunswick');
+insert into provence_ca (id, abbreviation, name) values (5,  'NL', 'Newfoundland and Labrador');
+insert into provence_ca (id, abbreviation, name) values (6,  'NS', 'Nova Scotia');
+insert into provence_ca (id, abbreviation, name) values (7,  'NT', 'Northwest Territories');
+insert into provence_ca (id, abbreviation, name) values (8,  'NU', 'Nunavut');
+insert into provence_ca (id, abbreviation, name) values (9,  'ON', 'Ontario');
+insert into provence_ca (id, abbreviation, name) values (10, 'PE', 'Prince Edward Island');
+insert into provence_ca (id, abbreviation, name) values (11, 'QC', 'Quebec');
+insert into provence_ca (id, abbreviation, name) values (12, 'SK', 'Saskatchewan');
+insert into provence_ca (id, abbreviation, name) values (13, 'YT', 'Yukon');
