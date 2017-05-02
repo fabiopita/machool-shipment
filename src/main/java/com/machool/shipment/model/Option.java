@@ -1,14 +1,13 @@
 package com.machool.shipment.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Option {
+public class Option implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;
 	

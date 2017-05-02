@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class DimensionTO {
+public class DimensionTO implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;
 	

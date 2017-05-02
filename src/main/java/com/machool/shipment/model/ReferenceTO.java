@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class ReferenceTO {
+public class ReferenceTO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	

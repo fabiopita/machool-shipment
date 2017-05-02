@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class OptionTO {
+public class OptionTO implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -16,7 +16,7 @@ public class OptionTO {
 	@GeneratedValue
 	private Long id;
 	
-	private String optionCode;
+	private String optionCode = "DC";
 	private BigDecimal optionAmount;
 	private Boolean optionQualifier1;
 	private String optionQualifier2;

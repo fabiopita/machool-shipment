@@ -1,11 +1,13 @@
 package com.machool.shipment.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class DomesticAddressTO {
+public class DomesticAddressTO implements Serializable  {
 
 	private static final long serialVersionUID = 1L;
 	

@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class DeliverySpecTO {
+public class DeliverySpecTO implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;
 	

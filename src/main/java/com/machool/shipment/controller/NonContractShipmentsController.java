@@ -48,11 +48,12 @@ public class NonContractShipmentsController {
 		modelAndView.addObject(new NonContractShipmentTO());
 		modelAndView.addObject("optionCodes", optionCodes.findAll());
 		modelAndView.addObject("provencesCA", provencesCA.findAll());
+		
 		return modelAndView;
 	}
 	
 	@PostMapping("/formNonContractShipment")
-	public ModelAndView save(@Valid NonContractShipmentTO nonContractShipment, RedirectAttributes redirectAttributes) {
+	public ModelAndView save(NonContractShipmentTO nonContractShipment, RedirectAttributes redirectAttributes) {
 		NonContractShipmentInfo nonContractShipmentInfo = new NonContractShipmentInfo();
 		NCShipmentClientWS createNCShipmentClient = new NCShipmentClientWS();
 		if (nonContractShipment.getDeliverySpec().getDestination().getAddress().getCountryCode().length() > 2){
@@ -74,8 +75,10 @@ public class NonContractShipmentsController {
 	
 	public String getAbbreviationCount(String countryName){
 		CountryClientWS countryClientWS = new CountryClientWS();
-		String country = countryClientWS.getCountry(countryName);
+		String country = countryClientWS.getCountryRest(countryName);
 		return country;
 	}
+	
+	
 
 }

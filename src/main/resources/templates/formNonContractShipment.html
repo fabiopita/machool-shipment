@@ -61,7 +61,6 @@
 						<tr>
 							<th>Parcel Characteristics</th>
 							<th>Dimensions</th>
-							<th>Option</th>
 						</tr>
 						<tr>
 							<td>
@@ -74,12 +73,6 @@
 								<input type="number" required="required" class="form-control" min="1" placeholder="Length" th:field="*{deliverySpec.parcelCharacteristic.dimensions.length}"/><br/>
 								<input type="number" required="required" class="form-control" min="1" placeholder="Width" th:field="*{deliverySpec.parcelCharacteristic.dimensions.width}"/><br/>
 								<input type="number" required="required" class="form-control" min="1" placeholder="Height" th:field="*{deliverySpec.parcelCharacteristic.dimensions.height}"/><br/>
-							</td>
-							<td>
-								<select id="option" class="form-control" th:field="*{deliverySpec.option.optionCode}" >
-				                    <option value="">Select Option</option>
-				                    <option th:each="optionCode : ${optionCodes}" th:value="${optionCode.code}" th:text="${optionCode.description}"></option>
-				                </select>
 							</td>
 						</tr>								
 					</table>

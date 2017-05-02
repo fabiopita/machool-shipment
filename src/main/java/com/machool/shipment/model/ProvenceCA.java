@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="PROVENCE_CA")
-public class ProvenceCA {
+public class ProvenceCA implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;
 	

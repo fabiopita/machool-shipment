@@ -6,8 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import javax.validation.constraints.NotNull;
+
 @Entity
-public class DestinationAddressTO {
+public class DestinationAddressTO implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -19,6 +21,7 @@ public class DestinationAddressTO {
 	private String addressLine2;
 	private String city;
     private String provState;
+    @NotNull
     private String countryCode;
     private String postalZipCode;
     

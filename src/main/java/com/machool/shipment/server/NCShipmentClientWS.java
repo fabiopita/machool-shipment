@@ -4,7 +4,6 @@ package com.machool.shipment.server;
 import ca.canadapost.cpcdp.ncshipping.generated.messages.Messages;
 import ca.canadapost.cpcdp.ncshipping.generated.ncshipment.*;
 
-import com.machool.shipment.model.ReturnShipmentTO;
 import com.sun.jersey.api.client.*;
 import com.sun.jersey.api.client.config.*;
 
@@ -19,7 +18,6 @@ public class NCShipmentClientWS {
 
     private Client aClient;
     private static String LINK;
-    private ReturnShipmentTO returnShipmentTO = new ReturnShipmentTO();
     NonContractShipmentInfo shipmentInfo;
     
     public NonContractShipmentInfo createNCS(NonContractShipment nonContractShipment) {    	
@@ -29,7 +27,6 @@ public class NCShipmentClientWS {
         InputStream respIS = resp.getEntityInputStream();
         
         System.out.println("HTTP Response Status: " + resp.getStatus() + " " + resp.getClientResponseStatus());
-        returnShipmentTO.setCodStatus(resp.getStatus());
         JAXBContext jc;
         try {
         	jc = JAXBContext.newInstance(NonContractShipmentInfo.class, Messages.class);

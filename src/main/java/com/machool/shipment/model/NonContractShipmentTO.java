@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 
 @Entity
-public class NonContractShipmentTO {
+public class NonContractShipmentTO implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;
 	 
